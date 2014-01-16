@@ -22,28 +22,12 @@ h2, h3 { .headers }
 	
 a { text-decoration: none; color: @dull-blue; }
 
-#books {
-	float: left;
-	div img {
-		float: left;
-	}
+// layout
+#content {
+	width: 80%;
+	margin: 0 auto;
+	padding: 0
 }
-
-#current_news {
-	float: left;
-	img {
-		margin-left: 71px;
-	}
-	h2 {
-		float: left;
-		margin: 16px 15px 10px 0px
-	}
-}
-
-.column_pad { margin-right: 3%; }
-.column { width: 47%; min-width: 340px; }
-
-#recent_entries div { margin-bottom: 4px; }
 
 #menu {
 	position: relative;
@@ -71,6 +55,34 @@ a { text-decoration: none; color: @dull-blue; }
 		a { color: @dull-grey; font-family: 'Neucha', cursive; }
 	}
 }
+// home page
+#books {
+	float: left;
+	h2 { margin-top: 4px; }
+	div img { float: left; }
+}
+
+#current_news {
+	float: left;
+	img { margin-left: 71px; }
+	h2 {
+		float: left;
+		margin: 16px 15px 10px 0px
+	}
+}
+
+.column_pad { margin-right: 3%; }
+.column { width: 47%; min-width: 340px; }
+
+#recent_entries div { margin-bottom: 4px; }
+
+// book page
+div.module { 
+	float: left; 
+	&.cushion_right { margin-right: 40px; }
+}
+
+img.book_cover { border: 4px solid white; }
 
 #book_detail {
 	text-align: center;
@@ -80,6 +92,15 @@ a { text-decoration: none; color: @dull-blue; }
 	h1, h2, h3 { margin-top: 4px; }
 	h3 { font-size: 170%; }
 }
+
+#synopsis {
+	min-width: 350px;
+	width: 45%;
+	margin-top: 40px;
+	h2 { margin-top: 4px; }
+}
+
+#book_description h2 { margin-top: 4px; }
 
 #book_description, #payment_form {
 	dl { font-size: 13px }
