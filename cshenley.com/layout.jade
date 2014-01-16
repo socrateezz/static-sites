@@ -1,0 +1,37 @@
+doctype 5
+html
+	head
+		title= tags.title
+		meta(name="description", content="#{tags.description}")
+		meta(name="og:image", content="#{tags.og_image}")
+		meta(name="og:image:type", content="#{tags.og_image_type}")
+		meta(name="og:image:width", content="#{tags.og_image_width}")
+		meta(name="og:image:height", content="#{tags.og_image_height}")
+		meta(name="og:title", content="#{tags.og_title}")
+		meta(name="og:url", content="#{tags.og_url}")
+		meta(name="og:site_name", content="#{tags.og_site_name}")
+		meta(name="og:type", content="#{tags.og_type}")
+		link(rel="canonical", href="#{tags.og_url}")
+    
+		link(href='http://fonts.googleapis.com/css?family=Neucha', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', href='/stylesheets/csh.css')
+
+	body
+		div#head
+			img(src="images/csh_head.jpg", height="auto", width="100%")
+			div#menu
+				ul
+					li 
+						a(href="/") home
+					li
+						a(href="/the_alderman") The Alderman
+					li
+						a(href="http://blog.endleland.com") blog
+					li
+						a(href="/about") about
+				div.clear
+		block content 
+		//- include shared/_ga
+		//- include shared/_facebook

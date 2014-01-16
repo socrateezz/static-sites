@@ -1,0 +1,78 @@
+{
+  "index": {
+  	"tags":{
+  		"title": "CS Henley",
+  		"description": "CS Henley is a San Francisco Bay Area iterary fantasy author.  His first novel, The Alderman, was published in 2012.",
+  		"og_image": "http://cshenley.com/images/alderman_icon.jpg",
+  		"og_image_type": "image/jpg",
+  		"og_image_width": "250",
+  		"og_image_height": "250",
+  		"og_title": "CS Henley, Literary Fantasy Author",
+  		"og_url": "http://cshenley.com",
+  		"og_site_name": "CS Henley",
+  		"og_type": "website"
+  		}
+  },
+  "about": {
+    "tags": {
+      "title": "About CS Henley",
+      "description": "Author of the literary/fantasy Novel The Alderman.  CS Henley is a boring engineer by day, a writer and coffee drinker by morning.",
+      "og_image": "http://cshenley.com/images/cshenley.jpg",
+      "og_image_type": "image/jpg",
+      "og_image_width": "215",
+      "og_image_height": "161",
+      "og_title": "About CS Henley",
+      "og_url": "http://cshenley.com/about",
+      "og_site_name": "CS Henley",
+      "og_type": "website"
+    }
+  },
+  "the_alderman" : {
+    "tags": {
+      "title": "The Alderman",
+      "description": "The Alderman is a literary fantasy novel about the alderman of Cantoc and how he manipulates 7 impoverished nobles into trading their life for prosperity.",
+      "og_image": "http://cshenley.com/images/alderman_icon.jpg",
+      "og_image_type": "image/jpg",
+      "og_image_width": "250",
+      "og_image_height": "250",
+      "og_title": "The Alderman is a literary fantasy novel by CS Henley.  It follows the Alderman of Cantoc as he manipulates 7 impoverished nobles into traiding their lives for prosperity.",
+      "og_url": "http://cshenley.com/the_alderman",
+      "og_site_name": "CS Henley",
+      "og_type": "website"
+    },
+    "book": {
+      "pid": "1",
+      "title": "The Alderman",
+      "author": "CS Henley",
+      "price": "10.99",
+      "shipping": "5.00",
+      "cover": "alderman_cover.jpg",
+      "cover_preview": "alderman_cover_preview.jpg",
+      "synopsis": "Seven strangers brought together in the service of the Alderman. Each there in payment of their family's debt, but without an understanding of the price they'd pay in support of the Alderman's scheme. Surl Niop hoped to outwit them all. Instead of serving the Alderman he had an imposter take his place.\n\nTo consolidate his grip on his city of Cantoc, the Alderman hoped to join the ranks of an influential religious order and schemed to have others pay the price for his entry.\n\nOthers are caught in the path of his ambitions, and the Alderman greeted each with the same opportunistic and calculating responses.\n\nThe Alderman is a frank exposition of human weakness and a stark look at the avarice of man.",
+      "ISBN": "978-0-9887279-1-5",
+      "first_published": "December 2012",
+      "current_edition": "2nd",
+      "cover_type": "",
+      "dimensions": "",
+      "pages": "",
+      "editors": "",
+      "cover_art": "",
+      "illustrations": ""
+    }
+  }
+}
+
+        ,
+        ,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Paperback",
+        '6"x9"',
+        "480",
+        "Neal D Hartman, Erika Heald",
+        "C Neill",
+        "CS Henley"

@@ -1,0 +1,130 @@
+@cool-white: #ebecec;
+@dull-blue: #395f76;
+@dull-grey: #666460;
+
+.clear { clear: both; }
+.hidden { display: none; }
+.right { float: right; }
+.left { float: left; }
+.cushion_right { margin-right: 12px; }
+.cushion_bottom { margin-bottom: 20px; }
+
+body {
+	background-color: @cool-white;
+	padding: 0;
+	margin: 0;
+	font-family: 'Raleway', 'sans-serif';
+}
+
+.headers { font-family: 'Amatic SC', cursive; color: @dull-grey; }
+h1 { .headers; font-size: 200%; margin-bottom: .25em; }
+h2, h3 { .headers }
+	
+a { text-decoration: none; color: @dull-blue; }
+
+#books {
+	float: left;
+	div img {
+		float: left;
+	}
+}
+
+#current_news {
+	float: left;
+	img {
+		margin-left: 71px;
+	}
+	h2 {
+		float: left;
+		margin: 16px 15px 10px 0px
+	}
+}
+
+.column_pad { margin-right: 3%; }
+.column { width: 47%; min-width: 340px; }
+
+#recent_entries div { margin-bottom: 4px; }
+
+#menu {
+	position: relative;
+	margin: 0 auto;
+	width: 616px;
+	background-color: rgba(255, 255, 255, 0.65);
+	background-image: url(../images/menu-bg.png);
+	margin-bottom: 10px;
+
+	ul {
+		margin: 0;
+		text-align: center;
+		font-size: 115%;
+		text-transform: uppercase;
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+		float: left;
+		margin-right: 25px;
+		width: 129px;
+		text-align: center;
+
+		a { color: @dull-grey; font-family: 'Neucha', cursive; }
+	}
+}
+
+#book_detail {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 50px;
+
+	h1, h2, h3 { margin-top: 4px; }
+	h3 { font-size: 170%; }
+}
+
+#book_description, #payment_form {
+	dl { font-size: 13px }
+	dt {
+		float: left;
+		margin-bottom: 5px;
+		width: 145px;
+		overflow: hidden;
+		white-space: nowrap;
+		clear: left;
+
+		span:after {
+			padding-left: 10px;
+			content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+			color: black;
+		}
+	}
+	dd {
+		clear: right;
+		float: left;
+		margin-bottom: 5px;
+		margin-left: 10px;
+		line-height: 16px;
+	}
+}
+
+// about page
+#about_details {
+	float: left;
+	width: 250px;
+	margin-right: 25px;
+
+	.image_box { text-align: center; }
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 25px;
+	}
+	li { text-align: center; }
+	h1, h2, h3 { text-align: center; }
+	h1 { margin-top: 0px; }
+	h2 { margin: 25px 0px 5px 0px; }
+	a { color: black; }
+}
+#about_description {
+	min-width: 340px;
+	margin-top: 50px;
+}
