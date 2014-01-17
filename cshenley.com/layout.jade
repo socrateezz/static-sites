@@ -17,6 +17,7 @@ html
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
 		link(rel='stylesheet', href='/stylesheets/csh.css')
+		include _ga_head
 
 	body
 		div#head
@@ -33,5 +34,5 @@ html
 						a(href="/about") about
 				div.clear
 		block content 
-		//- include shared/_ga
+		include _ga
 		//- include shared/_facebook

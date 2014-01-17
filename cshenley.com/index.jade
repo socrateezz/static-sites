@@ -36,11 +36,11 @@ block content
 			$.getJSON('http://blog.endleland.com/api/read/json?callback=?',
 						function(response) {
 							var i=0;
-							var d="";
-							var p = "";
+							var d = p = dte = "";
 							for (post in response.posts) {
 								if(i<3) {
-									d = new Date(response.posts[post]['date-gmt']);
+									dte = response.posts[post]['date-gmt'];
+									d = new Date(Date.parse(dte.substr(0,dte.indexOf(' ')), "yyyy-MM-dd"));
 									p += '<div><a href="' + response.posts[post].url+ '">' + (d.getMonth()+1) + "/" + d.getFullYear() + " - " + response.posts[post]['regular-title'] + "</div>";
 									i++;
 								}
