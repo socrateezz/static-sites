@@ -17,11 +17,12 @@ html
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
 		link(rel='stylesheet', href='/stylesheets/csh.css')
-		include _ga_head
+		include shared/_ga_head
 
 	body
 		div#head
 			img(src="images/csh_head.jpg", height="auto", width="100%")
+			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", data-layout="box_count", data-action="like", data-show-faces="true", data-share="true", data-colorscheme="dark")
 			div#menu
 				ul
 					li 
@@ -29,10 +30,10 @@ html
 					li
 						a(href="/the_alderman") The Alderman
 					li
-						a(href="http://blog.endleland.com") blog
+						a(href="http://blog.endleland.com", onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") blog
 					li
 						a(href="/about") about
 				div.clear
 		block content 
-		include _ga
-		//- include shared/_facebook
+		include shared/_ga
+		include shared/_fb
