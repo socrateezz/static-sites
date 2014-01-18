@@ -27,6 +27,20 @@
       "og_type": "website"
     }
   },
+    "error": {
+    "tags": {
+      "title": "About CS Henley",
+      "description": "Error Page.",
+      "og_image": "http://cshenley.com/images/cshenley.jpg",
+      "og_image_type": "image/jpg",
+      "og_image_width": "215",
+      "og_image_height": "161",
+      "og_title": "About CS Henley",
+      "og_url": "http://cshenley.com/about",
+      "og_site_name": "CS Henley",
+      "og_type": "website"
+    }
+  },
   "the_alderman" : {
     "tags": {
       "title": "The Alderman",

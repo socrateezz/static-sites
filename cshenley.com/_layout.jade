@@ -16,7 +16,7 @@ html
 		link(href='http://fonts.googleapis.com/css?family=Neucha', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
-		link(rel='stylesheet', href='/stylesheets/csh.css')
+		link(rel='stylesheet', href='stylesheets/csh.css')
 		include shared/_ga_head
 
 	body
@@ -26,14 +26,15 @@ html
 			div#menu
 				ul
 					li 
-						a(href="/") home
+						a(href="index.html") home
 					li
-						a(href="/the_alderman") The Alderman
+						a(href="the_alderman.html") The Alderman
 					li
 						a(href="http://blog.endleland.com", onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") blog
 					li
-						a(href="/about") about
+						a(href="about.html") about
 				div.clear
-		block content 
+		//- block content 
+		!= yield
 		include shared/_ga
 		include shared/_fb
