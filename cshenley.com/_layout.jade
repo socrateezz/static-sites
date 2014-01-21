@@ -12,29 +12,33 @@ html
 		meta(name="og:site_name", content="#{tags.og_site_name}")
 		meta(name="og:type", content="#{tags.og_type}")
 		link(rel="canonical", href="#{tags.og_url}")
-		meta(name="viewport", content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;")
+		meta(name="viewport", 
+			content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;")
     
 		link(href='http://fonts.googleapis.com/css?family=Neucha', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
 		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/csh.css')
-		link(rel='stylesheet', type='text/css', media='screen and (max-device-width: 480px)', href='stylesheets/mobile.css')
+		link(rel='stylesheet', type='text/css', media='screen and (max-device-width: 480px)', 
+			href='stylesheets/mobile.css')
 		include shared/_ga_head
 
 	body
 		div#head
 			img.web(src="images/csh_head.jpg", height="auto", width="100%")
 			img.mobile(src="images/mobile_head_1.jpg", height="auto", width="100%")
-			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", data-layout="box_count", data-action="like", data-show-faces="true", data-share="true", data-colorscheme="dark")
+			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", 
+				data-layout="box_count", data-action="like", data-show-faces="true", 
+				data-share="true", data-colorscheme="dark")
 			div#menu
-				img.mobile.menu(src="images/burger.png")
 				ul
 					li 
 						a(href="index.html") home
 					li
 						a(href="the_alderman.html") The Alderman
 					li
-						a(href="http://blog.endleland.com", onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") blog
+						a(href="http://blog.endleland.com", 
+							onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") blog
 					li
 						a(href="about.html") about
 				div.clear
