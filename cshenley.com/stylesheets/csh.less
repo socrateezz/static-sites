@@ -41,6 +41,8 @@ img { max-width: 100%; }
 	padding: 0
 }
 
+/****** NEW SHIT ******/
+
 #menu {
 	position: relative;
 	margin: 0 auto;
@@ -67,8 +69,8 @@ img { max-width: 100%; }
 		a { color: @dull-grey; font-family: 'Neucha', cursive; }
 	}
 }
-/****** NEW SHIT ******/
-.col { width: 45%; margin-right: 15pt; float: left; min-width: 320pt; }
+
+.col { width: 45%; margin-right: 15pt; float: left; min-width: 280pt; }
 .box {
 	background-color: fade(@cooler-white, 55%);
 	margin-top: 10px;
@@ -96,103 +98,155 @@ img { max-width: 100%; }
 	p { margin-top: 5px; margin-bottom: 0px; max-width: 320pt; }
 	h2 { float: left; margin: 0px 15px 0px 0px; }
 }
-
 .current_event {
 	text-align: center;
 	p { text-align: justify; }
 	h2 { float: left; margin: 16px 15px 10px 0px; }
 }
 
+// BOOK PAGE
+#book {
+	#content {
+		background-color: fade(@cooler-white, 55%);
+		max-width: 614px;
+		min-width: 320pt;
+		.box.cover {
+			float: none;
+			position: relative;
+			text-align: center;
+			margin: 0 auto;
+			width: 467px;
+		}
+		
+		.box {
+			margin: 0 auto;
+			background-color: transparent;
+			width: auto;
+			float: left;	
+			margin-top: 0px;
+			min-width: 320pt;
+			img { 
+				float: left; 
+				border: 
+				4px solid white;
+				margin-right: 10px;
+			}
+			.buy_button {
+				background-color: rgba(240,197,82,.65);
+				font-family: 'Amatic SC', cursive;
+				font-size: 200%;
+				width: auto;
+				padding-right: 10px;
+				padding-left: 10px;
+				text-align: center;
+				padding-bottom: 2px;
+				border: 1px solid #b38407;
+				cursor: pointer;
+				margin: 0 auto;
+				display: inline;
+			}
+			dl { font-size: 13px }
+			dt {
+				float: left;
+				margin-bottom: 5px;
+				width: 145px;
+				overflow: hidden;
+				white-space: nowrap;
+				clear: left;
 
+				span:after {
+					padding-left: 10px;
+					content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+					color: black;
+				}
+			}
+			dd {
+				clear: right;
+				float: left;
+				margin-bottom: 5px;
+				margin-left: 10px;
+				line-height: 16px;
+			}
+		}	
+	}
+}	
 
+// ABOUT PAGE
+#about {
+	#content {
+		max-width: 620pt;
+		min-width: 320pt;	
+		.box { float: left; max-width: 340pt; }
+		.details {
+			max-width: 200pt;
+		}
+	}
+}
 
 /**********************/
 
-// // home page
-// #books {
-// 	float: left;
+// // book page
+// div.module { 
+// 	float: left; 
+// 	&.cushion_right { margin-right: 40px; }
+// }
+
+// img.book_cover { border: 4px solid white; }
+
+// #book_detail {
+// 	text-align: center;
+// 	margin-top: 30px;
+// 	margin-bottom: 50px;
+
+// 	h1, h2, h3 { margin-top: 4px; }
+// 	h3 { font-size: 170%; }
+// }
+
+// #synopsis {
+// 	min-width: 350px;
+// 	width: 45%;
+// 	margin-top: 40px;
 // 	h2 { margin-top: 4px; }
-// 	div img { 
-// 		float: left; 
-// 	}
 // }
 
-// #current_news {
-// 	float: left;
-// 	img { margin-left: 71px; }
-// 	h2 {
-// 		float: left;
-// 		margin: 16px 15px 10px 0px
-// 	}
-// }
-
-// .column_pad { margin-right: 3%; }
-// .column { width: 47%; min-width: 340px; }
-
-// #recent_entries div { margin-bottom: 4px; }
-
-// book page
-div.module { 
-	float: left; 
-	&.cushion_right { margin-right: 40px; }
-}
-
-img.book_cover { border: 4px solid white; }
-
-#book_detail {
-	text-align: center;
-	margin-top: 30px;
-	margin-bottom: 50px;
-
-	h1, h2, h3 { margin-top: 4px; }
-	h3 { font-size: 170%; }
-}
-
-#synopsis {
-	min-width: 350px;
-	width: 45%;
-	margin-top: 40px;
-	h2 { margin-top: 4px; }
-}
-
-.buy_button {
-	background-color: rgba(240,197,82,.65);
-	font-family: 'Amatic SC', cursive;
-	font-size: 200%;
-	width: 65px;
-	text-align: center;
-	padding-bottom: 2px;
-	border: 1px solid #b38407;
-	cursor: pointer;
-	margin: 0 auto;
-}
+// // .buy_button {
+// // 	background-color: rgba(240,197,82,.65);
+// // 	font-family: 'Amatic SC', cursive;
+// // 	font-size: 200%;
+// // 	width: 65px;
+// // 	text-align: center;
+// // 	padding-bottom: 2px;
+// // 	border: 1px solid #b38407;
+// // 	cursor: pointer;
+// // 	margin: 0 auto;
+// // }
 	
-#book_description h2 { margin-top: 4px; }
+// #book_description h2 { margin-top: 4px; }
 
-#book_description, #payment_form {
-	dl { font-size: 13px }
-	dt {
-		float: left;
-		margin-bottom: 5px;
-		width: 145px;
-		overflow: hidden;
-		white-space: nowrap;
-		clear: left;
+// #book_description, #payment_form {
+// 	dl { font-size: 13px }
+// 	dt {
+// 		float: left;
+// 		margin-bottom: 5px;
+// 		width: 145px;
+// 		overflow: hidden;
+// 		white-space: nowrap;
+// 		clear: left;
 
-		span:after {
-			padding-left: 10px;
-			content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-			color: black;
-		}
-	}
-	dd {
-		clear: right;
-		float: left;
-		margin-bottom: 5px;
-		margin-left: 10px;
-		line-height: 16px;
-	}
-}
+// 		span:after {
+// 			padding-left: 10px;
+// 			content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+// 			color: black;
+// 		}
+// 	}
+// 	dd {
+// 		clear: right;
+// 		float: left;
+// 		margin-bottom: 5px;
+// 		margin-left: 10px;
+// 		line-height: 16px;
+// 	}
+// }
 
 // about page
 #about_details {

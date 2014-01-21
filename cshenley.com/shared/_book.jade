@@ -1,55 +1,55 @@
-div.module.cushion_right
-	a(class="fancybox", rel="group", href="images/#{book.cover}")
-		img.book_cover(src="images/#{book.cover_preview}", alt="The Alderman book cover", width="212", height="303")
-
-div#book_detail.module.cushion_right
-	h1 #{book.title}
-	h2 by #{book.author}
-	h3 
-		a(href="#{book.amazon}", onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") On Amazon.com
-	//- p Every copy is signed by the author.
-	div.buy_button
-		a(href="#{book.amazon}", onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") buy
-
+div#book
+	div#content
+		div.box.cover
+			img.book_cover(src="images/#{book.cover_preview}", 
+				alt="The Alderman book cover", width="212", height="303")
+			h1 #{book.title}
+			h2 by #{book.author}
+			h3 
+				a(href="#{book.amazon}", 
+					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") On Amazon.com
+			div.buy_button
+				a(href="#{book.amazon}", 
+					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") buy
+			div.clear
 		
-div#synopsis.module
-	h2 Synopsis
-	!= book.synopsis
+		div.box
+			h2 Synopsis
+			!= book.synopsis
 
-div.clear
-
-div#book_description.module
-	h2 Description
-	dl
-		dt 
-			span ISBN
-		dd #{book.ISBN}
-		dt 
-			span Date First Published
-		dd #{book.first_published}
-		dt 
-			span Current Edition
-		dd #{book.current_edition}
-		dt 
-			span Cover
-		dd #{book.cover_type}
-		dt 
-			span Dimensions
-		dd #{book.dimensions}
-		dt 
-			span Pages
-		dd #{book.pages}
-		dt 
-			span Editors
-		dd #{book.editors}
-		dt 
-			span Cover Art, Title Art
-		dd #{book.cover_art}
-		dt 
-			span Illustrations
-		dd #{book.illustrations}
-	div.clear
-			
+		div.box.desc
+			h2 Description
+			dl
+				dt 
+					span ISBN
+				dd #{book.ISBN}
+				dt 
+					span Date First Published
+				dd #{book.first_published}
+				dt 
+					span Current Edition
+				dd #{book.current_edition}
+				dt 
+					span Cover
+				dd #{book.cover_type}
+				dt 
+					span Dimensions
+				dd #{book.dimensions}
+				dt 
+					span Pages
+				dd #{book.pages}
+				dt 
+					span Editors
+				dd #{book.editors}
+				dt 
+					span Cover Art, Title Art
+				dd #{book.cover_art}
+				dt 
+					span Illustrations
+				dd #{book.illustrations}
+			div.clear
+		div.clear
+					
 link(rel="stylesheet", href="js/fancybox/source/jquery.fancybox.css?v=2.1.3", type="text/css", media="screen")
 script(type="text/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
 script(type="text/javascript", src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.3")
