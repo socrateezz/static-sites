@@ -24,8 +24,13 @@ and (max-width : 320px) {
 	}
 	#head {
 		max-width: 320pt; 
-		img.mobile { display: block; width: 320pt; height: auto; }
+		img.mobile { display: block; }
 		img.web { display: none; }
+		#menu_link {
+			position: absolute;
+			top: 5pt;
+			left: 2pt;
+		}
 		#menu {
 			position: absolute;
 			top: 5pt;
@@ -37,6 +42,8 @@ and (max-width : 320px) {
 			img { width: auto; }
 		}
 	}
+	.col { max-width: 320pt; }
+	.box { max-width: 320pt; }
 	#content {
 		width: 320pt;
 		max-width: 320pt;

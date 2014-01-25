@@ -1,0 +1,16 @@
+{
+  "index": {
+  	"tags":{
+  		"title": "Gooseberry Publishing",
+  		"description": "GBP is a San Francisco Bay Area independent publishing house.",
+  		"og_image": "http://gooseberrypublishing.com/images/gbp_logo.jpg",
+  		"og_image_type": "image/jpg",
+  		"og_image_width": "250",
+  		"og_image_height": "250",
+  		"og_title": "Goosebery Publishing: Bridging imagination and print every day",
+  		"og_url": "http://gooseberrypublishing.com",
+  		"og_site_name": "Gooseberry Publishing",
+  		"og_type": "website"
+  		}
+  }
+}

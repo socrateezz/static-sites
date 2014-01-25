@@ -1,0 +1,22 @@
+doctype 5
+html
+	head
+		title= tags.title
+		meta(name="description", content="#{tags.description}")
+		meta(name="og:image", content="#{tags.og_image}")
+		meta(name="og:image:type", content="#{tags.og_image_type}")
+		meta(name="og:image:width", content="#{tags.og_image_width}")
+		meta(name="og:image:height", content="#{tags.og_image_height}")
+		meta(name="og:title", content="#{tags.og_title}")
+		meta(name="og:url", content="#{tags.og_url}")
+		meta(name="og:site_name", content="#{tags.og_site_name}")
+		meta(name="og:type", content="#{tags.og_type}")
+		link(rel="canonical", href="#{tags.og_url}")
+		meta(name="viewport", 
+			content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;")
+		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/endleland.css')
+		include shared/_ga_head
+
+	body
+		!= yield
+	include shared/_ga

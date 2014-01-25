@@ -30,6 +30,7 @@ html
 			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", 
 				data-layout="box_count", data-action="like", data-show-faces="true", 
 				data-share="true", data-colorscheme="dark")
+			img#menu_link.mobile(src="images/burger.png")
 			div#menu
 				ul
 					li 
@@ -43,5 +44,8 @@ html
 						a(href="about.html") about
 				div.clear
 		!= yield
+		script(type="text/javascript", src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.3")
+		script.
+			$("#menu_link").on('click', function(event){ $("#menu").toggle();});
 		include shared/_ga
 		include shared/_fb
