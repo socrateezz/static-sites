@@ -12,40 +12,46 @@ html
 		meta(name="og:site_name", content="#{tags.og_site_name}")
 		meta(name="og:type", content="#{tags.og_type}")
 		link(rel="canonical", href="#{tags.og_url}")
-		meta(name="viewport", 
-			content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;")
-    
+		
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(href='http://fonts.googleapis.com/css?family=Neucha', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/foundation.css')
 		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/csh.css')
-		link(rel='stylesheet', type='text/css', media='screen and (max-device-width: 480px)', 
-			href='stylesheets/mobile.css')
+		script(type="text/javascript", src="js/vendor/modernizr.js")
 		include shared/_ga_head
 
 	body
+		div.fixed
+			nav.top-bar(data-topbar, data-options="is_hover: false")
+				ul.title-area
+					li.name
+						h1
+							a(href="index.html") CS Henley
+					li.toggle-topbar.menu-icon
+						a(href="#")
+                    
+				section.top-bar-section
+					ul.left
+						li
+							a(href="the_alderman.html") The Alderman
+						li
+							a(href="http://blog.endleland.com", 
+								onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") Blog
+						li
+							a(href="about.html") About
 		div#head
-			img.web(src="images/csh_head.jpg", height="auto", width="100%")
-			img.mobile(src="images/mobile_head_1.jpg", height="auto", width="100%")
+			img(src="images/csh_head.jpg", data-interchange="[images/csh_head.jpg, (default)], [images/csh_head_small.jpg, (small)], [images/csh_head.jpg, (medium)]")
 			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", 
 				data-layout="box_count", data-action="like", data-show-faces="true", 
 				data-share="true", data-colorscheme="dark")
-			img#menu_link.mobile(src="images/burger.png")
-			div#menu
-				ul
-					li 
-						a(href="index.html") home
-					li
-						a(href="the_alderman.html") The Alderman
-					li
-						a(href="http://blog.endleland.com", 
-							onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") blog
-					li
-						a(href="about.html") about
-				div.clear
+
 		!= yield
-		script(type="text/javascript", src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.3")
+		script(type="text/javascript", src="js/vendor/jquery.js")
+		script(type="text/javascript", src="js/foundation.min.js")
+		script(type="text/javascript", src="js/foundation/foundation.topbar.js")
 		script.
-			$("#menu_link").on('click', function(event){ $("#menu").toggle();});
+			$(document).foundation();
 		include shared/_ga
 		include shared/_fb
