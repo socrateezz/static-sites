@@ -1,23 +1,67 @@
 div.row
-	div.large-12.columns
-		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis convallis sagittis. 
-			|Vivamus dapibus venenatis tortor sit amet vestibulum. Morbi sollicitudin sed est luctus 
-			|lacinia. In porta elit ut sapien faucibus laoreet. Nullam quam lectus, vestibulum id 
-			|posuere dapibus, scelerisque vitae ligula. Sed scelerisque adipiscing neque. Quisque at 
-			|elementum dui, sed feugiat tellus. Donec malesuada nibh in luctus cursus. Phasellus eget 
-			|tempor mi. Nunc hendrerit elit dapibus ullamcorper pellentesque. In vel iaculis dolor. 
-			|Pellentesque pretium neque a magna dignissim iaculis. Sed sodales varius massa eu dapibus.
-		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis convallis sagittis. 
-			|Vivamus dapibus venenatis tortor sit amet vestibulum. Morbi sollicitudin sed est luctus 
-			|lacinia. In porta elit ut sapien faucibus laoreet. Nullam quam lectus, vestibulum id 
-			|posuere dapibus, scelerisque vitae ligula. Sed scelerisque adipiscing neque. Quisque at 
-			|elementum dui, sed feugiat tellus. Donec malesuada nibh in luctus cursus. Phasellus eget 
-			|tempor mi. Nunc hendrerit elit dapibus ullamcorper pellentesque. In vel iaculis dolor. 
-			|Pellentesque pretium neque a magna dignissim iaculis. Sed sodales varius massa eu dapibus.
-		p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis convallis sagittis. 
-			|Vivamus dapibus venenatis tortor sit amet vestibulum. Morbi sollicitudin sed est luctus 
-			|lacinia. In porta elit ut sapien faucibus laoreet. Nullam quam lectus, vestibulum id 
-			|posuere dapibus, scelerisque vitae ligula. Sed scelerisque adipiscing neque. Quisque at 
-			|elementum dui, sed feugiat tellus. Donec malesuada nibh in luctus cursus. Phasellus eget 
-			|tempor mi. Nunc hendrerit elit dapibus ullamcorper pellentesque. In vel iaculis dolor. 
-			|Pellentesque pretium neque a magna dignissim iaculis. Sed sodales varius massa eu dapibus.
+	div#books_and_posts.large-6.columns.small-12.book_preview
+		div.book_preview
+			h1 The Alderman
+			a(href="#", data-reveal-id="alderman_cover", data-reveal)
+				img(src="images/alderman_cover_icon.jpg")
+			div#alderman_cover.reveal-modal.medium(data-reveal)
+				img(src="images/alderman_cover.jpg")
+				a.close-reveal-modal &#215;
+			h2 Available Now
+			p Seven noble sons promised riches in exchange for completing 
+				|a suicide mission. Lorem ipsum dolor sit amet, consectetuer 
+				|adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
+				|laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad 
+				|minim veniam, quis nostrud exerci tation ullamcorper suscipit 
+				|lobortis nisl ut aliquip ex ea commodo consequat.
+		h2 Recent Posts
+		div#recent_posts
+
+	div#current_news.large-6.columns.small-12
+		h1 Current News
+		div.current_event
+			h2 12.24.13
+			p The River Goddess backstory was so much fun that I think I'll 
+				|write about that as a short work after I finish this book 
+				|about the Tempest and the Selters.
+		div.current_event
+			h2 12.17.13
+			p Well, my intention to write a quaint novella has gone awry.  
+				|It's turning into a novel.  The map below is the part of 
+				|the Waning where it takes place.
+		div.large-6.img_box
+			a(href="#", data-reveal-id="selter-valley", data-reveal)
+				img(src="images/t_selter-valley.jpeg")
+			div#selter-valley.reveal-modal.medium(data-reveal)
+				img(src="images/selter-valley.jpeg")
+				a.close-reveal-modal &#215;
+		div.current_event
+			h2 12.8.13
+			p I started dabbling with a short story about the Tempest 
+				|getting a cup of coffee.  It's set just before the Dead 
+				|Wars, during a stretch when he was disengaged from much 
+				|of the world.
+	
+
+script.
+	$(function() { 
+		$.getJSON('http://blog.endleland.com/api/read/json?callback=?',
+					function(response) {
+						var i=0;
+						var d = p = dte = "";
+						for (post in response.posts) {
+							if(i<3) {
+								dte = response.posts[post]['date-gmt'];
+								d = new Date(Date.parse(dte.substr(0,dte.indexOf(' ')), "yyyy-MM-dd"));
+								p += '<div class="recent_post"><h2>' + (d.getMonth()+1) + '/' + d.getFullYear() + 
+									' - </h2> <a href="' + response.posts[post].url+ '"><p>' + 
+									response.posts[post]['regular-title'] + 
+									'</p></a></div><div class="clear"></div>';
+								i++;
+							}
+							else
+								break;
+						}
+						$("#recent_posts").append(p);	
+				});
+	});

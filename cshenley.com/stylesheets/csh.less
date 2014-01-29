@@ -10,7 +10,9 @@ body {
 	font-family: 'Raleway', 'sans-serif';	
 }
 
-h1 { font-family: 'Amatic SC', cursive; }
+h1,h2,h3 { font-family: 'Amatic SC', cursive; }
+
+.reveal-modal { text-align: center; }
 
 nav.top-bar {
 	ul {
@@ -24,5 +26,46 @@ header {
 		position: absolute;
 		top: 60px;
 		right: 10px;
+	}
+}
+
+div.book_preview {
+	h2 { font-size: 175%; }
+	p { text-align: justify; }
+	img { 
+		position: relative;
+		float: left;
+		margin-right: 20px; 
+		padding: 4px;
+		background-color: white;
+		border: 1px solid @dull-grey;
+	}
+}
+
+#books_and_posts {
+	margin-top: 1rem;
+	.recent_post{
+		margin-top: 10px;
+		p { margin-top: 5px; margin-bottom: 0px; max-width: 320pt; }
+		h2 { float: left; margin: 0px 15px 0px 0px; }
+	}	
+}
+
+#current_news {
+	margin-top: 1rem;
+	h2 { font-size: 175%; }
+	div.img_box {
+		margin: 0 auto;
+	}
+	img {
+		padding: 4px;
+		background-color: white;	
+		border: 1px solid @dull-grey;
+		margin-bottom: 1.25rem;
+	}
+	.current_event {
+		text-align: center;
+		p { text-align: justify; }
+		h2 { float: left; margin: 16px 15px 10px 0px; }
 	}
 }
