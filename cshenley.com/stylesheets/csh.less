@@ -36,10 +36,14 @@ div.book_preview {
 		position: relative;
 		float: left;
 		margin-right: 20px; 
-		padding: 4px;
-		background-color: white;
-		border: 1px solid @dull-grey;
+		.bordered_image;
 	}
+}
+
+.bordered_image {
+	padding: 4px;
+	background-color: white;
+	border: 1px solid @dull-grey;
 }
 
 #books_and_posts {
@@ -58,9 +62,7 @@ div.book_preview {
 		margin: 0 auto;
 	}
 	img {
-		padding: 4px;
-		background-color: white;	
-		border: 1px solid @dull-grey;
+		.bordered_image;
 		margin-bottom: 1.25rem;
 	}
 	.current_event {
@@ -68,4 +70,14 @@ div.book_preview {
 		p { text-align: justify; }
 		h2 { float: left; margin: 16px 15px 10px 0px; }
 	}
+}
+#about_bio {
+	img { .bordered_image; }
+	text-align: center;
+	ul { margin-left: 0; }
+	li { list-style: none; 	margin-left: 0; }
+}
+#about_desc {
+	margin-top: 1rem;	
+	p { text-align: justify; }
 }
