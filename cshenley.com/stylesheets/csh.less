@@ -46,6 +46,29 @@ div.book_preview {
 	border: 1px solid @dull-grey;
 }
 
+dl { font-size: 13px }
+dt {
+	float: left;
+	margin-bottom: 5px;
+	width: 160px;
+	overflow: hidden;
+	white-space: nowrap;
+	clear: left;
+
+	span:after {
+		padding-left: 10px;
+		content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+		color: black;
+	}
+}
+dd {
+	clear: right;
+	float: left;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	line-height: 16px;
+}
+
 #books_and_posts {
 	margin-top: 1rem;
 	.recent_post{
@@ -80,4 +103,24 @@ div.book_preview {
 #about_desc {
 	margin-top: 1rem;	
 	p { text-align: justify; }
+}
+
+#book_page {	
+	h1, h2 { margin-top: 1rem; }
+	img { .bordered_image; margin-top: 1rem; }
+	.book_credits, .book_cover { text-align: center; }
+	.buy_button {
+		background-color: rgba(240,197,82,.65);
+		font-family: 'Amatic SC', cursive;
+		font-size: 200%;
+		width: auto;
+		padding-right: 10px;
+		padding-left: 10px;
+		text-align: center;
+		padding-bottom: 2px;
+		border: 1px solid #b38407;
+		cursor: pointer;
+		margin: 0 auto;
+		display: inline;
+	}
 }
