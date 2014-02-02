@@ -1,0 +1,12 @@
+form(data-abide="ajax")
+	div.row
+		div.small-12.columns
+			div.row.collapse
+				div.small-10.columns
+					input#right-label(type="email", required, placeholder="email address")
+					small.error an email address is required.
+				div.small-2.columns
+					a.button.postfix(href="#") Go
+	div.row
+		div.small-12.columns
+			p enter your email and you'll receive a link to download the eBook version of #{book.title}.

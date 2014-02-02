@@ -5,13 +5,16 @@ div#book_page
 					alt="The Alderman book cover", width="212", height="303")
 		div.large-2.columns.book_credits
 			h1 #{book.title}
-			h2 by #{book.author}
+			h3 by #{book.author}
 			h3 
 				a(href="#{book.amazon}", 
 					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") On Amazon.com
 			div.buy_button
 				a(href="#{book.amazon}", 
 					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") buy
+			h3 Download eBook
+			div#ebook.buy_button
+				a(href="#", data-reveal-id="ebook_form", data-reveal) free
 		div.large-7.columns
 			h2 Synopsis
 			!= book.synopsis
@@ -46,3 +49,5 @@ div#book_page
 				dt 
 					span Illustrations
 				dd #{book.illustrations}
+	div#ebook_form.reveal-modal.medium(data-reveal)
+		include _ebook_modal.jade
