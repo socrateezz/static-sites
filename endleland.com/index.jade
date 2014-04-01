@@ -1,4 +1,46 @@
-div#content
-	h1 Endleland
-	h2 regrettably, we're unavailable right now.  come back later.
-	h3 |(like in a while.  i'm working on new stuff)
+div.row
+	div#intro.large-12.columns
+		img(src='images/endleland-shield-logo.png')
+		h1 Endleland
+		p This site is a reference for the world of Endleland.  Presently, I have a couple maps to share.  In time I'll provide more detailed information about the various kingdoms and historical events.	I'll try to have information that directly pertains to my novels available first, then ancillary info, then stuff that I just find interesting.  I've been crafting Enleland for over 20 years; there's a lot to share.
+div#gallery.row
+	div.large-9.large-centered.small-9.small-centered.medium-9.medium-centered.columns
+		div.row
+			div.large-4.medium-4.small-12.columns
+				a(href="#", data-reveal-id="world-map", data-reveal)
+					img(src='images/maps/t_world-map.jpg')
+				p An overview map of Endleland.  Endleland sits at the intersection of two continents.  It's positioned in the temperate zone of its planet, that means roughly 30&#176; to 63&#176; latitude north.  This allows for weather similiar to North America or Europe.
+				div#world-map.reveal-modal.medium(data-reveal)
+					img(src="images/maps/world-map.jpg")
+					a.close-modal.close-reveal-modal &#215;
+			
+			div.large-4.medium-4.small-12.columns
+				a(href="#", data-reveal-id="endle-mtns", data-reveal)
+					img(src='images/maps/t_endle-mtns.jpg')
+				p A map of the Endle Mountain region where the novel 
+					span.book-title The Alderman
+					|  takes place.
+				div#endle-mtns.reveal-modal.medium(data-reveal)
+					img(src="images/maps/endle-mtns.jpg")
+					a.close-modal.close-reveal-modal &#215;
+			
+			div.large-4.medium-4.small-12.columns
+				a(href="#", data-reveal-id="the-waning", data-reveal)
+					img(src='images/maps/t_the-waning.png')
+				p A map of the regions about The Waning, where the novel 
+					span.book-title On Their Own
+					|  takes place
+				div#the-waning.reveal-modal.medium(data-reveal)
+					img(src="images/maps/the-waning.jpg")
+					a.close-modal.close-reveal-modal &#215;
+
+		div.row
+			div.large-4.medium-4.small-12.columns
+				a(href="#", data-reveal-id="inspiration", data-reveal)
+					img(src='images/maps/t_inspiration.jpg')
+				p You'll never guess what inspired this geography.  Europe?  The Mediterranean?  Nope.  I was scraping paint off my wall in my basement and this revealed itself.  It looked so cool, I made it Endleland.
+				div#inspiration.reveal-modal.medium(data-reveal)
+					img(src="images/maps/inspiration.jpg")
+					a.close-modal.close-reveal-modal &#215;
+	
+		

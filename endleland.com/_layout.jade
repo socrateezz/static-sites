@@ -2,6 +2,7 @@ doctype 5
 html
 	head
 		title= tags.title
+		meta(http-equiv="content-type", content="text/html; charset=UTF-8")
 		meta(name="description", content="#{tags.description}")
 		meta(name="og:image", content="#{tags.og_image}")
 		meta(name="og:image:type", content="#{tags.og_image_type}")
@@ -12,11 +13,28 @@ html
 		meta(name="og:site_name", content="#{tags.og_site_name}")
 		meta(name="og:type", content="#{tags.og_type}")
 		link(rel="canonical", href="#{tags.og_url}")
-		meta(name="viewport", 
-			content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;")
+
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="shortcut icon", href="images/endle-favicon.ico")
+
+		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/foundation.css')
 		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/endleland.css')
+		script(type="text/javascript", src="js/vendor/modernizr.js")
+		script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
 		include shared/_ga_head
 
 	body
+		header
+			img.banner(src="images/csh_head.jpg", data-interchange="[images/csh_head.jpg, (default)], [images/csh_head_small.jpg, (small)], [images/csh_head.jpg, (medium)], [images/csh_head.jpg, (large)]")	
+
 		!= yield
-	include shared/_ga
+		
+		script(type="text/javascript", src="js/vendor/fastclick.js")
+		script(type="text/javascript", src="js/foundation/foundation.js")
+		script(type="text/javascript", src="js/foundation/foundation.interchange.js")
+		script(type="text/javascript", src="js/foundation/foundation.reveal.js")
+		script.
+			$(document).foundation();
+		include shared/_ga
