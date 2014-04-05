@@ -17,12 +17,12 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="shortcut icon", href="images/favicon.ico")
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
-		link(href='http://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
-		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/foundation_form.css')
-		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/csh.css')
-		script(type="text/javascript", src="js/vendor/modernizr.js")
+		link(href='http://fonts.googleapis.com/css?family=Antic', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/foundation_form.css')
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/csh.css')
+		script(type="text/javascript", src="/js/vendor/modernizr.js")
 		script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-		include shared/_ga_head
+		//- include shared/_ga_head
 
 	body
 		div.fixed
@@ -30,31 +30,36 @@ html
 				ul.title-area
 					li.name
 						h1
-							a(href="index.html") CS Henley
+							a(href="/index.html") CS Henley
 					li.toggle-topbar.menu-icon
 						a(href="#")
                     
 				section.top-bar-section
 					ul.left
-						li
-							a(href="the_alderman.html") The Alderman
+						li.has-dropdown
+							a(href="#") Writing
+							ul.dropdown
+								li
+									a(href="/writing/arrangements.html") Arrangements
+								li
+									a(href="/writing/the-alderman.html") The Alderman
 						li
 							a(href="http://blog.endleland.com", 
 								onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") Blog
 						li
-							a(href="about.html") About
+							a(href="/about.html") About
 		header
-			img.banner(src="images/csh_head.jpg", data-interchange="[images/csh_head.jpg, (default)], [images/csh_head_small.jpg, (small)], [images/csh_head.jpg, (medium)]")	
+			img.banner(src="/images/csh_head.jpg", data-interchange="[/images/csh_head.jpg, (default)], [/images/csh_head_small.jpg, (small)], [/images/csh_head.jpg, (medium)]")	
 			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", 
 				data-layout="box_count", data-action="like", data-show-faces="true", 
 				data-share="true", data-colorscheme="dark")
 
 		!= yield
-		script(type="text/javascript", src="js/vendor/fastclick.js")
-		script(type="text/javascript", src="js/foundation/foundation.js")
-		script(type="text/javascript", src="js/foundation/foundation.topbar.js")
-		script(type="text/javascript", src="js/foundation/foundation.interchange.js")
-		script(type="text/javascript", src="js/foundation/foundation.reveal.js")
+		script(type="text/javascript", src="/js/vendor/fastclick.js")
+		script(type="text/javascript", src="/js/foundation/foundation.js")
+		script(type="text/javascript", src="/js/foundation/foundation.topbar.js")
+		script(type="text/javascript", src="/js/foundation/foundation.interchange.js")
+		script(type="text/javascript", src="/js/foundation/foundation.reveal.js")
 		script.
 			$(document).foundation();
 		include shared/_ga
