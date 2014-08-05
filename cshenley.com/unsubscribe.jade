@@ -1,0 +1,44 @@
+div.row
+	div#unsubscribe-message.large-6.large-centered.medium-6.medium-centered.small-10.small-centered.columns
+		p you have been unsubscribed
+div.row
+	div.large-2.large-centered.medium-2.medium-centered.small-4.small-centered.columns
+		form#resubscribe-form(method="POST", action="https://store.gooseberrypublishing.com/email/resubscribe/")
+			input.postfix.small.button(type="submit", value="resubscribe")
+
+script.
+	$(document).ready(function() {
+		function get(name){
+			if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+				return decodeURIComponent(name[1]);
+		}
+		var hash = get('hash');
+		
+		$("#resubscribe-form").submit(function(event){
+			event.preventDefault();
+			var $form = $(this);
+			url = $form.attr("action");
+
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: {hash:hash},
+				success: function(response, textStatus, jqXHR) {
+					if(response.outcome == "success") {
+						$("#unsubscribe-message").empty().append("<p>you have been re-subscribed</p>");
+						$("#resubscribe-form").empty().append("<hr /><p>Thanks!</p>");
+					}
+					else {
+						$("#unsubscribe-message").empty().append("<p>something went wrong; try again later.</p>");
+						$("#resubscribe-form").empty();
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					$("#unsubscribe-message").empty().append("<p>something went wrong; try again later.</p>");
+					$("#resubscribe-form").empty();
+				}
+			});
+		});	
+	});
+
+		

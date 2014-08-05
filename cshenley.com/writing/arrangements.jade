@@ -85,7 +85,7 @@ div.row
 	div#email-pitch.large-5.large-centered.medium-7.medium-centered.small-12.small-centered.columns
 		hr
 		p Want to know when more writing comes availalbe?  Leave me your email address.
-form#email-form(action="http://store.gooseberrypublishing.com:3000/email/add/", method="POST", data-abide)
+form#email-form(action="https://store.gooseberrypublishing.com/email/add/", method="POST", data-abide)
 	div.row
 		div#email-box.large-5.large-centered.medium-7.medium-centered.small-12.small-centered.columns
 			div.row.collapse
@@ -95,32 +95,44 @@ form#email-form(action="http://store.gooseberrypublishing.com:3000/email/add/", 
 					input.postfix.small.button(type="submit", value="add me")
 div.row
 	div#result.large-5.large-centered.medium-7.medium-centered.small-12.small-centered.columns
+		a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://cshenley.com/writing/arrangements.html", data-via="cs_henley", data-hashtags="endleland") Tweet
+		span#tumblr_button_abc123
+
 
 script.
-	$("#email-form").submit(function(event){
-		console.log("form method called");
-		event.preventDefault();
-		var $form = $(this);
-		email = $form.find("input[name='email']").val();
-		url = $form.attr("action");
+	$(document).ready(function() {
+		$("#email-form").submit(function(event){
+			event.preventDefault();
+			var $form = $(this);
+			email = $form.find("input[name='email']").val();
+			url = $form.attr("action");
 
-		$.ajax({
-			type: 'POST',
-			url: url,
-			data: {email: email},
-			success: function(response, textStatus, jqXHR) {
-				$("#email-box").empty();
-				$("#email-pitch").empty().append("<hr /><p>Thanks!</p>");
-			},
-			error: function(jqXHR, textStatus, errorThrown){
-				alert(textStatus, errorThrown);
-			}
-		});
-	});	
-
-
-
-
+			$.ajax({
+				type: 'POST',
+				url: url,
+				data: {email: email},
+				success: function(response, textStatus, jqXHR) {
+					$("#email-box").empty();
+					$("#email-pitch").empty().append("<hr /><p>Thanks!</p>");
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					$("#email-box").empty();
+					$("#email-pitch").empty().append("<hr /><p>Thanks!</p>");
+				}
+			});
+		});	
+	});
+script.
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	var tumblr_link_url = "http://cshenley/writing/arragments.html";
+	var tumblr_link_name = "Arrangements by CS Henley";
+	var tumblr_link_description = "Arrangements is a short story about the relationship between Pottle Selter and Marsa Basters, two important characters in the upcoming novel On Their Own.";
+	var tumblr_button = document.createElement("a");
+	tumblr_button.setAttribute("href", "http://www.tumblr.com/share/link?url=" + encodeURIComponent(tumblr_link_url) + "&name=" + encodeURIComponent(tumblr_link_name) + "&description=" + encodeURIComponent(tumblr_link_description));
+	tumblr_button.setAttribute("title", "Share on Tumblr");
+	tumblr_button.setAttribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;");
+	tumblr_button.innerHTML = "Share on Tumblr";
+	document.getElementById("tumblr_button_abc123").appendChild(tumblr_button);
 
 
 

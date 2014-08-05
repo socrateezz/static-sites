@@ -1,0 +1,196 @@
+- var total = Number(book.price) + Number(book.shipping);
+
+div#buy-modal
+	div#purchase-message
+	div#purchase-info.row
+		div.row
+			div.small-6.columns
+				p.info-label #{book.title}
+			div.small-6.columns
+				p.info $#{book.price}
+		div.row
+			div.small-6.columns
+				p.info-label Shipping &#38; Handling
+			div.small-6.columns
+				p.info $#{book.shipping}
+		div.row
+			div.small-6.columns
+				p.info-label TOTAL
+			div.small-6.columns
+				p.info $#{total}
+
+	form#buy-form(data-abide="ajax", name="buy-form", action="https://store.gooseberrypublishing.com/order/", method="POST")
+		input(type="hidden", name="pid", value="#{book.pid}")
+		div.row
+			div.small-12.columns
+				div.row
+					div.small-6.columns	
+						input(type="text", name="fname", required, placeholder="first name")
+						small.error first name required.
+					div.small-6.columns	
+						input(type="text", name="lname", required, placeholder="last name")
+						small.error last name required.
+				div.row
+					div.small-6.columns	
+						input(type="text", name="street1", required, placeholder="street 1")
+						small.error street address required.
+					div.small-6.columns	
+						input(type="text", name="street2", placeholder="street 2")
+				div.row
+					div.small-6.columns	
+						input#zip(type="text", name="zip", required, placeholder="zip")
+						small.error zip code required.
+					div.small-6.columns
+						input(type="email", name="email", required, placeholder="email@email.com")
+						small.error an email address is required.
+				div.row
+					div.small-6.columns	
+						input(type="text", name="city", required, placeholder="city")
+						small.error city required.
+					div.small-2.columns	
+						select(name="state", required)
+							option(value='') --
+							option(value='AA') AA
+							option(value='AK') AK
+							option(value='AL') AL
+							option(value='AP') AP
+							option(value='AR') AR
+							option(value='AS') AS
+							option(value='AZ') AZ
+							option(value='CA') CA
+							option(value='CO') CO
+							option(value='DC') DC
+							option(value='DE') DE
+							option(value='FL') FL
+							option(value='FM') FM
+							option(value='GA') GA
+							option(value='GU') GU
+							option(value='HI') HI
+							option(value='IA') IA
+							option(value='ID') ID
+							option(value='IL') IL
+							option(value='IN') IN
+							option(value='KS') KS
+							option(value='KY') KY
+							option(value='LA') LA
+							option(value='MD') MD
+							option(value='MH') MH
+							option(value='MI') MI
+							option(value='MN') MN
+							option(value='MO') MO
+							option(value='MP') MP
+							option(value='MS') MS
+							option(value='MT') MT
+							option(value='NC') NC
+							option(value='ND') ND
+							option(value='NE') NE
+							option(value='NM') NM
+							option(value='NV') NV
+							option(value='NY') NY
+							option(value='OH') OH
+							option(value='OK') OK
+							option(value='OR') OR
+							option(value='PA') PA
+							option(value='PW') PW
+							option(value='SC') SC
+							option(value='SD') SD
+							option(value='TN') TN
+							option(value='TX') TX
+							option(value='UT') UT
+							option(value='VA') VA
+							option(value='WA') WA
+							option(value='WI') WI
+							option(value='WV') WV
+							option(value='WY') WY
+						small.error state is required.
+					div.small-4.columns
+						label mailing list subscription
+						input(name="subscribe", type="checkbox", checked)
+				div.row
+					div.small-8.columns	
+						input(type="text", name="number", required, data-encrypted-name="number", placeholder="crecit card number")
+						small.error credit card required.
+					div.small-2.columns
+						input(type="text", name="cvv", required, data-encrypted-name="cvv", placeholder="cvv")
+						small.error cvv required.
+					div.small-2.columns
+				div.row
+					div.small-3.columns
+						label Exp Month
+						select(name="month", required)
+							option(value="") --
+							option(value="1") Jan
+							option(value="2") Feb
+							option(value="3") Mar
+							option(value="4") Apr
+							option(value="5") May
+							option(value="6") June
+							option(value="7") July
+							option(value="8") Aug
+							option(value="9") Sept
+							option(value="10") Oct
+							option(value="11") Nov
+							option(value="12") Dec
+						small.error expiry month required.
+					div.small-3.columns
+						label Exp Year
+						select(name="year", required)
+							option(value="") --
+							option(value="2014") 2014
+							option(value="2015") 2015
+							option(value="2016") 2016
+							option(value="2017") 2017
+							option(value="2018") 2018
+							option(value="2019") 2019
+							option(value="2020") 2020
+							option(value="2021") 2021
+							option(value="2022") 2022
+						small.error expiry year required.
+					div.small-5.columns
+				div.row
+					div.small-3.small-centered.columns
+						input#submit.postfix.small.button(type="submit", value="Buy")
+
+script(type="text/javascript", src="https://js.braintreegateway.com/v1/braintree.js")
+script.
+	$(document).ready(function() {
+		var ajax_submit = function (e) {
+			console.log("calling ajax submit");
+			$form = $('#buy-form');
+			e.preventDefault();
+			//- $("#submit").attr("disabled", "disabled");
+			$.post($form.attr('action'), $form.serialize(), function (data) {
+				console.log("data" + data);
+				//- $form.parent().replaceWith(data);
+				//- if(data.result == "success") {
+				//- 	$("#buy-modal").html("<h3>Thanks!</h3><p>We hope you enjoy " + data.title + ".</p><p>A receipt has been emailed to you.</p><p>Questions or feedback?  Email us at <a href='mailto:feedback@gooseberrypublishing.com?Subject=Purchase%20Feedback'>feedback@gooseberrypublishing.com</a></p>");
+				//- }
+				//- else {
+				//- 	$("#purchase-message").html("<p>"+data.error+"</p>");
+				//- }
+			});
+		}
+
+		var braintree = Braintree.create("MIIBCgKCAQEAq84c36iHeW4f75duVJn5tyIWchPAEI+sSGjZ/hPFscnb/5idBe8eCYBi9c+JNvK5EfBDYRSIlWaAzpSjxX9xavjzkg1HBSJ8HCRchtmtD8axnY9Vtnttx1J8RSurhmLLXfCLDGvW7Bk6WIbfiJ4Tt8kHtdwMuZpWjKxFIGCg8pfLGs436vVsCebWNlzlZSPKvQ+KkAWZ2Atv3Ba9sI1nW7+AMNwCv0uBsQmMHydNFuCHE1a6Nx66rhFuh4xyouVsS9gGV1jv21WNHwy2eLRcGnxBXJ5ytrNT0de+hWroVJhjLsVYKLisEkOzbPmJpTUjf5q9i1YIUYpFTTjwtWVThQIDAQAB");
+		braintree.onSubmitEncryptForm('buy-form', ajax_submit);
+
+
+
+	//- service to grab city and state based on zip
+	$("#zip").focusout(function(event){
+		var $zip = $("#zip");
+		var zip_code = $zip.val();
+		if(zip_code.length > 4) {
+			var url = "https://store.gooseberrypublishing.com/services/zip/" + zip_code; 
+			$.getJSON(url, function(data){
+				if(!data.error) {
+					var $city = $("input[name='city']");
+					if($city.val().length == 0) {
+						$city.val(data.c);
+						$("select[name='state']").val(data.s);
+					}
+				}
+			});
+		}
+		});
+	});

@@ -6,12 +6,11 @@ div#book_page
 		div.large-2.columns.book_credits
 			h1 #{book.title}
 			h3 by #{book.author}
-			h3 
-				a(href="#{book.amazon}", 
-					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") On Amazon.com
 			div.buy_button
-				a(href="#{book.amazon}", 
-					onClick="outbound_link(this, 'Outbound Links', 'amazon.com'); return false;") buy
+				a(href="#", data-reveal-id="buy_form", data-reveal) buy
+			div#buy_form.reveal-modal.medium(data-reveal)
+				include _buy_form
+				a.close-reveal-modal &#215;
 			
 		div.large-7.columns
 			h2 Synopsis

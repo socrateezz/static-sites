@@ -1,0 +1,26 @@
+{
+  "index" : {
+    "tags": {
+      "title": "About CS Henley",
+      "description": "Author of the literary/fantasy Novel The Alderman.  CS Henley is a boring engineer by day, a writer and coffee drinker by morning.",
+      "og_image": "http://cshenley.com/images/cshenley.jpg",
+      "og_image_type": "image/jpg",
+      "og_image_width": "215",
+      "og_image_height": "161",
+      "og_title": "About CS Henley",
+      "og_url": "http://cshenley.com/about",
+      "og_site_name": "CS Henley",
+      "og_type": "website"
+    }
+  },
+  "legal" : {
+    "tags": {
+      "title": "TOS and Privacy",
+      "description": "How you can use and access content on cshenley.com and it's affiliated gooseberrypublishing.com resources.  And how we treat information we collect about you in the course of your usage of our services.",
+      "og_title": "TOS and Privacy",
+      "og_url": "http://cshenley.com/about/legal",
+      "og_site_name": "CS Henley",
+      "og_type": "website"
+    }
+  } 
+}

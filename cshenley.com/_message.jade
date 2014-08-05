@@ -1,30 +1,18 @@
 doctype 5
 html
 	head
-		title= tags.title
+		title unsubscribe
 		meta(http-equiv="content-type", content="text/html; charset=UTF-8")
-		meta(name="description", content="#{tags.description}")
-		meta(name="og:image", content="#{tags.og_image}")
-		meta(name="og:image:type", content="#{tags.og_image_type}")
-		meta(name="og:image:width", content="#{tags.og_image_width}")
-		meta(name="og:image:height", content="#{tags.og_image_height}")
-		meta(name="og:title", content="#{tags.og_title}")
-		meta(name="og:url", content="#{tags.og_url}")
-		meta(name="og:site_name", content="#{tags.og_site_name}")
-		meta(name="og:type", content="#{tags.og_type}")
-		link(rel="canonical", href="#{tags.og_url}")
 		
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="shortcut icon", href="images/favicon.ico")
 		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
 		link(href='http://fonts.googleapis.com/css?family=Antic', rel='stylesheet', type='text/css')
-		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/foundation.css')
-		link(rel='stylesheet', type='text/css', media='screen', href='stylesheets/csh.css')
-		script(type="text/javascript", src="js/vendor/modernizr.js")
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/foundation_form.css')
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/csh.css')
+		script(type="text/javascript", src="/js/vendor/modernizr.js")
 		script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-		script(type="text/javascript", src="http://platform.tumblr.com/v1/share.js")
 		include shared/_ga_head
-		include shared/_ga
 
 	body
 		div.fixed
@@ -51,7 +39,7 @@ html
 						li
 							a(href="/about/index.html") About
 		header
-			img.banner(src="images/csh_head.jpg", data-interchange="[images/csh_head.jpg, (default)], [images/csh_head_small.jpg, (small)], [images/csh_head.jpg, (medium)]")	
+			img.banner(src="/images/csh_head.jpg", data-interchange="[/images/csh_head.jpg, (default)], [/images/csh_head_small.jpg, (small)], [/images/csh_head.jpg, (medium)]")	
 			div.social(class="fb-like", data-href="https://www.facebook.com/endleland", 
 				data-layout="box_count", data-action="like", data-show-faces="true", 
 				data-share="true", data-colorscheme="dark")
@@ -64,14 +52,12 @@ html
 					hr
 					p &#169; 2004 CS Henley
 					a(href="/about/legal.html") terms &#38; privacy policy
-					
-					
 
-		script(type="text/javascript", src="js/vendor/fastclick.js")
-		script(type="text/javascript", src="js/foundation/foundation.js")
-		script(type="text/javascript", src="js/foundation/foundation.topbar.js")
-		script(type="text/javascript", src="js/foundation/foundation.interchange.js")
-		script(type="text/javascript", src="js/foundation/foundation.reveal.js")
-		script(type="text/javascript", src="js/foundation/foundation.abide.js")
+		script(type="text/javascript", src="/js/vendor/fastclick.js")
+		script(type="text/javascript", src="/js/foundation/foundation.js")
+		script(type="text/javascript", src="/js/foundation/foundation.topbar.js")
+		script(type="text/javascript", src="/js/foundation/foundation.interchange.js")
+		script(type="text/javascript", src="/js/foundation/foundation.reveal.js")
 		script.
 			$(document).foundation();
+		include shared/_ga

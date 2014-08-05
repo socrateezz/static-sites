@@ -1,13 +1,15 @@
 div.row
 	div#about_bio.large-3.columns
 		h1 About CS Henley
-		img(src="images/cshenley.jpg", 
+		img(src="/images/cshenley.jpg", 
 			alt="CS Henley drinking coffee at a fancy restaurant.  Funny thing about coffee at fancy restaurants, it always comes with fancy looking sugar cubes and adorable little pitchers of milk.  And really, sugar is sugar.  Cream is cream.  And I drink my coffee black.  But when it's laid out like that, I'm a sucker for it.", 
 			width="215", height="161")
 		h2 Published Works
 		ul
 			li 
-				a(href="writing/the_alderman.html") The Alderman
+				a(href="/writing/the-alderman.html") The Alderman
+		a(href="https://twitter.com/cs_henley", class="twitter-follow-button", data-show-count="false") Follow @cs_henley
+
 	div#about_desc.large-9.columns
 		p I tell stories about people who live in the strange world of Endeland.
 		p I started toying with this world in 1992 and began crafting it over 
@@ -24,3 +26,6 @@ div.row
 			|then another year to actually get from that rough draft to something I could 
 			|publish.  I published it in 2012.  Since then, I've been dedicated to telling 
 			|the story of Endleland.
+
+script.
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

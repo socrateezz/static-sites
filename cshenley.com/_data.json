@@ -11,37 +11,9 @@
   		"og_url": "http://cshenley.com",
   		"og_site_name": "CS Henley",
   		"og_type": "website"
-  		}
+		  }
   },
-  "index_new": {
-    "tags":{
-      "title": "CS Henley",
-      "description": "CS Henley is a San Francisco Bay Area iterary fantasy author.  His first novel, The Alderman, was published in 2012.",
-      "og_image": "http://cshenley.com/images/alderman_icon.jpg",
-      "og_image_type": "image/jpg",
-      "og_image_width": "250",
-      "og_image_height": "250",
-      "og_title": "CS Henley, Literary Fantasy Author",
-      "og_url": "http://cshenley.com",
-      "og_site_name": "CS Henley",
-      "og_type": "website"
-      }
-  },
-  "about": {
-    "tags": {
-      "title": "About CS Henley",
-      "description": "Author of the literary/fantasy Novel The Alderman.  CS Henley is a boring engineer by day, a writer and coffee drinker by morning.",
-      "og_image": "http://cshenley.com/images/cshenley.jpg",
-      "og_image_type": "image/jpg",
-      "og_image_width": "215",
-      "og_image_height": "161",
-      "og_title": "About CS Henley",
-      "og_url": "http://cshenley.com/about",
-      "og_site_name": "CS Henley",
-      "og_type": "website"
-    }
-  },
-    "error": {
+  "error": {
     "tags": {
       "title": "About CS Henley",
       "description": "Error Page.",
@@ -54,5 +26,8 @@
       "og_site_name": "CS Henley",
       "og_type": "website"
     }
+  },
+  "unsubscribe": {
+      "layout": "_message" 
   }
 }

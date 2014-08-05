@@ -1,0 +1,156 @@
+doctype 5
+html
+	head
+		title Welcome
+		meta(http-equiv="content-type", content="text/html; charset=UTF-8")
+		
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="shortcut icon", href="/images/favicon.ico")
+		link(href='http://fonts.googleapis.com/css?family=Amatic+SC', rel='stylesheet', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Antic', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/foundation_form.css')
+		link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/csh.css')
+		script(type="text/javascript", src="/js/vendor/modernizr.js")
+		script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+
+	body
+		div.fixed
+			nav.top-bar(data-topbar, data-options="is_hover: false")
+				ul.title-area
+					li.name
+						h1
+							a(href="/index.html") CS Henley
+					li.toggle-topbar.menu-icon
+						a(href="#")
+                    
+				section.top-bar-section
+					ul.left
+						li.has-dropdown
+							a(href="#") Writing
+							ul.dropdown
+								li
+									a(href="/writing/arrangements.html") Arrangements
+								li
+									a(href="/writing/the-alderman.html") The Alderman
+						li
+							a(href="http://blog.endleland.com", 
+								onClick="outbound_link(this, 'Outbound Links', 'blog.endleland.com'); return false;") Blog
+						li
+							a(href="/about/index.html") About
+
+		style.
+			p{font-family:'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;margin:0;padding:0}
+			img{max-width:100%}
+			.collapse{margin:0!important;padding:0}
+			body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
+			a{color:#2BA6CB}
+			.btn{text-decoration:none;color:#FFF;background-color:#666;font-weight:700;margin-right:10px;text-align:center;cursor:pointer;display:inline-block;padding:10px 16px}
+			p.callout{background-color:#ECF8FF;margin-bottom:15px;padding:15px}
+			.callout a{font-weight:700;color:#2BA6CB}
+			table.social{background-color:#ebebeb}
+			.social .soc-btn{font-size:12px;margin-bottom:10px;text-decoration:none;color:#FFF;font-weight:700;display:block;text-align:center;padding:3px 7px}
+			a.fb{background-color:#3B5998!important}
+			a.tw{background-color:#1daced!important}
+			a.gp{background-color:#DB4A39!important}
+			a.ms{background-color:#000!important}
+			.sidebar .soc-btn{display:block;width:100%}
+			.header.container table td.label{padding:15px 15px 15px 0}
+			table.footer-wrap{width:100%;clear:both!important}
+			.footer-wrap .container td.content p{border-top:1px solid #d7d7d7;padding-top:15px;font-size:10px;font-weight:700}
+			h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;line-height:1.1;margin-bottom:15px;color:#000}
+			h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
+			
+			h2{font-weight:200;font-size:37px}
+			h3{font-weight:500;font-size:27px}
+			h4{font-weight:500;font-size:23px}
+			h5{font-weight:900;font-size:17px}
+			h6{font-weight:900;font-size:14px;text-transform:uppercase;color:#444}
+			p,ul{margin-bottom:10px;font-weight:400;font-size:14px;line-height:1.6}
+			p.lead{font-size:17px}
+			p.last{margin-bottom:0}
+			ul li{margin-left:5px;list-style-position:inside}
+			ul.sidebar{background:#ebebeb;display:block;list-style-type:none}
+			ul.sidebar li{display:block;margin:0}
+			ul.sidebar li a{text-decoration:none;color:#666;cursor:pointer;border-bottom:1px solid #777;border-top:1px solid #FFF;display:block;margin:0;padding:10px 16px}
+			ul.sidebar li a.last{border-bottom-width:0}
+			ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p{margin-bottom:0!important}
+			.container{display:block!important;max-width:600px!important;clear:both!important;margin:0 auto!important}
+			.content{max-width:600px;display:block;margin:0 auto;padding:15px}
+			.column{width:300px;float:left}
+			.column-wrap{max-width:600px!important;margin:0 auto;padding:0!important}
+			.social .column{width:280px;min-width:279px;float:left}
+			.clear{display:block;clear:both}
+			table.head-wrap,table.body-wrap,.content table,.column table{width:100%}
+			.header.container table td.logo,.column tr td{padding:15px}
+			@media only screen and max-width 600px {
+			a[class=btn]{display:block!important;margin-bottom:10px!important;background-image:none!important;margin-right:0!important}
+			div[class=column]{width:auto!important;float:none!important}
+			table.social div[class=column]{width:auto!important}
+			}
+		
+		table.head-wrap(bgcolor='#e0e0de')
+			tr
+				td
+				td.header.container
+					div.content
+						table(bgcolor='#FFFFFF')
+							tr
+								td
+									img(src='https://store.gooseberrypublishing.com/images/gbp-email-header.jpg')
+				td
+		table.body-wrap
+			tr
+				td
+				td.container(bgcolor='#FFFFFF')
+					div.content
+						table
+							tr
+								td
+									h3 Welcome
+									p Thanks for signing up for updates on my novels.  The next time something comes available, I'll let you know.
+									
+									h3 On Their Own
+									p The short story you read is about two characters in my series, The Barbarian.  Pottle plays a big role in the first book of the series, On Their Own.  You'll get to know more about Marsa in book two -- which I haven't titled yet.  On Their Own is scheduled to be available in June.</p>
+									img#verify-pic(src='https://store.gooseberrypublishing.com/email/verfied/')
+				td
+		table.footer-wrap
+			tr
+				td
+				td.container
+					div.content
+						table
+							tr
+								td(align='center')
+									p
+										a#unsubscribe-link(href='https://store.gooseberrypublishing.com/email/unsubscribe/', style='display:none;') Unsubscribe
+				td
+		footer
+			div.row
+				div.large-6.large-centered.medium-8.medium-centered.small-10.small-centered.columns
+					hr
+					p &#169; 2004 CS Henley
+					a(href="/about/terms.html") terms
+					a(href="/about/privacy.html") privacy policy
+					
+					
+
+		script(type="text/javascript", src="/js/vendor/fastclick.js")
+		script(type="text/javascript", src="/js/foundation/foundation.js")
+		script(type="text/javascript", src="/js/foundation/foundation.topbar.js")
+		script(type="text/javascript", src="/js/foundation/foundation.interchange.js")
+		script(type="text/javascript", src="/js/foundation/foundation.reveal.js")
+		script.
+			$(document).foundation();
+			$(document).ready(function() {
+				function get(name){
+					if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+						return decodeURIComponent(name[1]);
+				}
+				var userid = get('uid');
+				var url = $('#unsubscribe-link').attr('href') + userid;
+				var verify-url = $('#verify-pic').attr('src') + userid;
+				$("#unsubscribe-link").attr('href', url);
+				$("#verify-url").attr('src', verify-url);
+				$('#unsubscribe-link').show();
+			});
+		

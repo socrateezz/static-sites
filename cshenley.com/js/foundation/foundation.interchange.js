@@ -1,1 +1,331 @@
-!function(a,b){"use strict";Foundation.libs.interchange={name:"interchange",version:"5.0.3",cache:{},images_loaded:!1,nodes_loaded:!1,settings:{load_attr:"interchange",named_queries:{"default":"only screen",small:Foundation.media_queries.small,medium:Foundation.media_queries.medium,large:Foundation.media_queries.large,xlarge:Foundation.media_queries.xlarge,xxlarge:Foundation.media_queries.xxlarge,landscape:"only screen and (orientation: landscape)",portrait:"only screen and (orientation: portrait)",retina:"only screen and (-webkit-min-device-pixel-ratio: 2),only screen and (min--moz-device-pixel-ratio: 2),only screen and (-o-min-device-pixel-ratio: 2/1),only screen and (min-device-pixel-ratio: 2),only screen and (min-resolution: 192dpi),only screen and (min-resolution: 2dppx)"},directives:{replace:function(b,c,d){if(/IMG/.test(b[0].nodeName)){var e=b[0].src;if(new RegExp(c,"i").test(e))return;return b[0].src=c,d(b[0].src)}var f=b.data("interchange-last-path");if(f!=c)return a.get(c,function(a){b.html(a),b.data("interchange-last-path",c),d()})}}},init:function(b,c,d){Foundation.inherit(this,"throttle"),this.data_attr="data-"+this.settings.load_attr,a.extend(!0,this.settings,c,d),this.bindings(c,d),this.load("images"),this.load("nodes")},events:function(){var c=this;return a(b).off(".interchange").on("resize.fndtn.interchange",c.throttle(function(){c.resize.call(c)},50)),this},resize:function(){var b=this.cache;if(!this.images_loaded||!this.nodes_loaded)return setTimeout(a.proxy(this.resize,this),50),void 0;for(var c in b)if(b.hasOwnProperty(c)){var d=this.results(c,b[c]);d&&this.settings.directives[d.scenario[1]](d.el,d.scenario[0],function(){if(arguments[0]instanceof Array)var a=arguments[0];else var a=Array.prototype.slice.call(arguments,0);d.el.trigger(d.scenario[1],a)})}},results:function(a,b){var c=b.length;if(c>0)for(var d=this.S('[data-uuid="'+a+'"]'),e=c-1;e>=0;e--){var f,g=b[e][2];if(f=this.settings.named_queries.hasOwnProperty(g)?matchMedia(this.settings.named_queries[g]):matchMedia(g),f.matches)return{el:d,scenario:b[e]}}return!1},load:function(a,b){return("undefined"==typeof this["cached_"+a]||b)&&this["update_"+a](),this["cached_"+a]},update_images:function(){var a=this.S("img["+this.data_attr+"]"),b=a.length,c=0,d=this.data_attr;this.cache={},this.cached_images=[],this.images_loaded=0===b;for(var e=b-1;e>=0;e--){if(c++,a[e]){var f=a[e].getAttribute(d)||"";f.length>0&&this.cached_images.push(a[e])}c===b&&(this.images_loaded=!0,this.enhance("images"))}return this},update_nodes:function(){var a=this.S("["+this.data_attr+"]").not("img"),b=a.length,c=0,d=this.data_attr;this.cached_nodes=[],this.nodes_loaded=0===b;for(var e=b-1;e>=0;e--){c++;var f=a[e].getAttribute(d)||"";f.length>0&&this.cached_nodes.push(a[e]),c===b&&(this.nodes_loaded=!0,this.enhance("nodes"))}return this},enhance:function(c){for(var d=this["cached_"+c].length,e=d-1;e>=0;e--)this.object(a(this["cached_"+c][e]));return a(b).trigger("resize")},parse_params:function(a,b,c){return[this.trim(a),this.convert_directive(b),this.trim(c)]},convert_directive:function(a){var b=this.trim(a);return b.length>0?b:"replace"},object:function(a){var b=this.parse_data_attr(a),c=[],d=b.length;if(d>0)for(var e=d-1;e>=0;e--){var f=b[e].split(/\((.*?)(\))$/);if(f.length>1){var g=f[0].split(","),h=this.parse_params(g[0],g[1],f[1]);c.push(h)}}return this.store(a,c)},uuid:function(a){function c(){return(0|65536*(1+Math.random())).toString(16).substring(1)}var b=a||"-";return c()+c()+b+c()+b+c()+b+c()+b+c()+c()+c()},store:function(a,b){var c=this.uuid(),d=a.data("uuid");return this.cache[d]?this.cache[d]:(a.attr("data-uuid",c),this.cache[c]=b)},trim:function(b){return"string"==typeof b?a.trim(b):b},parse_data_attr:function(a){for(var b=a.data(this.settings.load_attr).split(/\[(.*?)\]/),c=b.length,d=[],e=c-1;e>=0;e--)b[e].replace(/[\W\d]+/,"").length>4&&d.push(b[e]);return d},reflow:function(){this.load("images",!0),this.load("nodes",!0)}}}(jQuery,this,this.document);
+;(function ($, window, document, undefined) {
+  'use strict';
+
+  Foundation.libs.interchange = {
+    name : 'interchange',
+
+    version : '5.2.2',
+
+    cache : {},
+
+    images_loaded : false,
+    nodes_loaded : false,
+
+    settings : {
+      load_attr : 'interchange',
+
+      named_queries : {
+        'default' : 'only screen',
+        small : Foundation.media_queries.small,
+        medium : Foundation.media_queries.medium,
+        large : Foundation.media_queries.large,
+        xlarge : Foundation.media_queries.xlarge,
+        xxlarge: Foundation.media_queries.xxlarge,
+        landscape : 'only screen and (orientation: landscape)',
+        portrait : 'only screen and (orientation: portrait)',
+        retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+          'only screen and (min--moz-device-pixel-ratio: 2),' +
+          'only screen and (-o-min-device-pixel-ratio: 2/1),' +
+          'only screen and (min-device-pixel-ratio: 2),' +
+          'only screen and (min-resolution: 192dpi),' +
+          'only screen and (min-resolution: 2dppx)'
+      },
+
+      directives : {
+        replace: function (el, path, trigger) {
+          // The trigger argument, if called within the directive, fires
+          // an event named after the directive on the element, passing
+          // any parameters along to the event that you pass to trigger.
+          //
+          // ex. trigger(), trigger([a, b, c]), or trigger(a, b, c)
+          //
+          // This allows you to bind a callback like so:
+          // $('#interchangeContainer').on('replace', function (e, a, b, c) {
+          //   console.log($(this).html(), a, b, c);
+          // });
+
+          if (/IMG/.test(el[0].nodeName)) {
+            var orig_path = el[0].src;
+
+            if (new RegExp(path, 'i').test(orig_path)) return;
+
+            el[0].src = path;
+
+            return trigger(el[0].src);
+          }
+          var last_path = el.data(this.data_attr + '-last-path');
+
+          if (last_path == path) return;
+
+          if (/\.(gif|jpg|jpeg|tiff|png)([?#].*)?/i.test(path)) {
+            $(el).css('background-image', 'url('+path+')');
+            el.data('interchange-last-path', path);
+            return trigger(path);
+          }
+
+          return $.get(path, function (response) {
+            el.html(response);
+            el.data(this.data_attr + '-last-path', path);
+            trigger();
+          });
+
+        }
+      }
+    },
+
+    init : function (scope, method, options) {
+      Foundation.inherit(this, 'throttle random_str');
+
+      this.data_attr = this.set_data_attr();
+      $.extend(true, this.settings, method, options);
+      this.bindings(method, options);
+      this.load('images');
+      this.load('nodes');
+    },
+
+    get_media_hash : function() {
+        var mediaHash='';
+        for (var queryName in this.settings.named_queries ) {
+            mediaHash += matchMedia(this.settings.named_queries[queryName]).matches.toString();
+        }
+        return mediaHash;
+    },
+
+    events : function () {
+      var self = this, prevMediaHash;
+
+      $(window)
+        .off('.interchange')
+        .on('resize.fndtn.interchange', self.throttle(function () {
+            var currMediaHash = self.get_media_hash();
+            if (currMediaHash !== prevMediaHash) {
+                self.resize();
+            }
+            prevMediaHash = currMediaHash;
+        }, 50));
+
+      return this;
+    },
+
+    resize : function () {
+      var cache = this.cache;
+
+      if(!this.images_loaded || !this.nodes_loaded) {
+        setTimeout($.proxy(this.resize, this), 50);
+        return;
+      }
+
+      for (var uuid in cache) {
+        if (cache.hasOwnProperty(uuid)) {
+          var passed = this.results(uuid, cache[uuid]);
+
+          if (passed) {
+            this.settings.directives[passed
+              .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
+                if (arguments[0] instanceof Array) { 
+                  var args = arguments[0];
+                } else { 
+                  var args = Array.prototype.slice.call(arguments, 0);
+                }
+
+                passed.el.trigger(passed.scenario[1], args);
+              });
+          }
+        }
+      }
+
+    },
+
+    results : function (uuid, scenarios) {
+      var count = scenarios.length;
+
+      if (count > 0) {
+        var el = this.S('[' + this.add_namespace('data-uuid') + '="' + uuid + '"]');
+
+        while (count--) {
+          var mq, rule = scenarios[count][2];
+          if (this.settings.named_queries.hasOwnProperty(rule)) {
+            mq = matchMedia(this.settings.named_queries[rule]);
+          } else {
+            mq = matchMedia(rule);
+          }
+          if (mq.matches) {
+            return {el: el, scenario: scenarios[count]};
+          }
+        }
+      }
+
+      return false;
+    },
+
+    load : function (type, force_update) {
+      if (typeof this['cached_' + type] === 'undefined' || force_update) {
+        this['update_' + type]();
+      }
+
+      return this['cached_' + type];
+    },
+
+    update_images : function () {
+      var images = this.S('img[' + this.data_attr + ']'),
+          count = images.length,
+          i = count,
+          loaded_count = 0,
+          data_attr = this.data_attr;
+
+      this.cache = {};
+      this.cached_images = [];
+      this.images_loaded = (count === 0);
+
+      while (i--) {
+        loaded_count++;
+        if (images[i]) {
+          var str = images[i].getAttribute(data_attr) || '';
+
+          if (str.length > 0) {
+            this.cached_images.push(images[i]);
+          }
+        }
+
+        if (loaded_count === count) {
+          this.images_loaded = true;
+          this.enhance('images');
+        }
+      }
+
+      return this;
+    },
+
+    update_nodes : function () {
+      var nodes = this.S('[' + this.data_attr + ']').not('img'),
+          count = nodes.length,
+          i = count,
+          loaded_count = 0,
+          data_attr = this.data_attr;
+
+      this.cached_nodes = [];
+      this.nodes_loaded = (count === 0);
+
+
+      while (i--) {
+        loaded_count++;
+        var str = nodes[i].getAttribute(data_attr) || '';
+
+        if (str.length > 0) {
+          this.cached_nodes.push(nodes[i]);
+        }
+
+        if(loaded_count === count) {
+          this.nodes_loaded = true;
+          this.enhance('nodes');
+        }
+      }
+
+      return this;
+    },
+
+    enhance : function (type) {
+      var i = this['cached_' + type].length;
+
+      while (i--) {
+        this.object($(this['cached_' + type][i]));
+      }
+
+      return $(window).trigger('resize');
+    },
+
+    parse_params : function (path, directive, mq) {
+      return [this.trim(path), this.convert_directive(directive), this.trim(mq)];
+    },
+
+    convert_directive : function (directive) {
+
+      var trimmed = this.trim(directive);
+
+      if (trimmed.length > 0) {
+        return trimmed;
+      }
+
+      return 'replace';
+    },
+
+    object : function(el) {
+      var raw_arr = this.parse_data_attr(el),
+          scenarios = [], 
+          i = raw_arr.length;
+
+      if (i > 0) {
+        while (i--) {
+          var split = raw_arr[i].split(/\((.*?)(\))$/);
+
+          if (split.length > 1) {
+            var cached_split = split[0].split(','),
+                params = this.parse_params(cached_split[0],
+                  cached_split[1], split[1]);
+
+            scenarios.push(params);
+          }
+        }
+      }
+
+      return this.store(el, scenarios);
+    },
+
+    store : function (el, scenarios) {
+      var uuid = this.random_str(),
+          current_uuid = el.data(this.add_namespace('uuid', true));
+
+      if (this.cache[current_uuid]) return this.cache[current_uuid];
+
+      el.attr(this.add_namespace('data-uuid'), uuid);
+
+      return this.cache[uuid] = scenarios;
+    },
+
+    trim : function(str) {
+
+      if (typeof str === 'string') {
+        return $.trim(str);
+      }
+
+      return str;
+    },
+
+    set_data_attr: function (init) {
+      if (init) {
+        if (this.namespace.length > 0) {
+          return this.namespace + '-' + this.settings.load_attr;
+        }
+
+        return this.settings.load_attr;
+      }
+
+      if (this.namespace.length > 0) {
+        return 'data-' + this.namespace + '-' + this.settings.load_attr;
+      }
+
+      return 'data-' + this.settings.load_attr;
+    },
+
+    parse_data_attr : function (el) {
+      var raw = el.attr(this.attr_name()).split(/\[(.*?)\]/),
+          i = raw.length, 
+          output = [];
+
+      while (i--) {
+        if (raw[i].replace(/[\W\d]+/, '').length > 4) {
+          output.push(raw[i]);
+        }
+      }
+
+      return output;
+    },
+
+    reflow : function () {
+      this.load('images', true);
+      this.load('nodes', true);
+    }
+
+  };
+
+}(jQuery, this, this.document));

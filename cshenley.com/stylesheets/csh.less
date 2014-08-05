@@ -1,6 +1,7 @@
 @cool-white: #fbfcfc;
 @base-grey: #666460;
 @dull-grey: darken(@base-grey, 10%);
+@light-grey: lighten(@base-grey, 20%);
 @turquoise: #0078a0;
 
 body {
@@ -29,6 +30,29 @@ header {
 		top: 53px;
 		right: 10px;
 	}
+}
+
+footer {
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+	text-align: center;
+	font-size: 80%;
+	color: @light-grey;
+	a { 
+		padding: 1rem;
+		color: @light-grey;
+	}
+	p { 
+		font-size: 100%; 
+		margin-bottom: .5rem;	
+	}
+}
+
+#purchase-info {
+	p { margin: 0px; }
+	p.info-label { text-align: right; }
+	p.info { text-align: left; }
+	margin-bottom: 1.5rem;
 }
 
 div.book_preview {
@@ -127,4 +151,9 @@ dd {
 
 #error_page {
 	margin-top: 3rem;
+}
+
+#unsubscribe-message { 
+	margin-top: 2rem;
+	text-align: center;
 }
